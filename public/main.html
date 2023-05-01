@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader-screen" class="d-none">
+        <div class="card">
+            <h1>Waiting for Player 2</h1>
+            <p>wait till other player join the room</p>
+            <div class="loader">
+                <div class="spin"></div>
+                <div class="bounce"></div>
+            </div>
+        </div>
+    </div>
+    <div id="main-game-div">
+        <div class="players-info">
+            <h4 style="float:left" class="first">Player 1: <span id="first"></span></h4>
+            <h4 style="float:right" class="second">Player 2: <span id="second"></span></h4>
+        </div>
+       <div class="wrapper">
+           <div class="container">
+               <button id="1" class="button-option"></button>
+               <button id="2" class="button-option"></button>
+               <button id="3" class="button-option"></button>
+               <button id="4" class="button-option"></button>
+               <button id="5" class="button-option"></button>
+               <button id="6" class="button-option"></button>
+               <button id="7" class="button-option"></button>
+               <button id="8" class="button-option"></button>
+               <button id="9" class="button-option"></button>
+           </div>
+           <button id="restart">Restart</button>
+       </div>
+    
+       <div class="popup hide">
+           <p id="message">Sample Message</p>
+           <button id="new-game">New Game</button>
+       </div>
+    </div>
+    
+   
+    <!-- Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.1/qs.min.js" integrity="sha512-5Zv/hNtOKSkeScnIYOqGjng82gQSHsCoyqq9TgrJLgYa032cUYWH4kF1ayS8Gz1Jfge7e8MaBF6AeEvoQ92v8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
