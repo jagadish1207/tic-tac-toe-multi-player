@@ -7,6 +7,7 @@ const firstPlayerSpan = document.getElementById('first');
 const secondPlayerSpan = document.getElementById('second');
 const loaderDiv = document.getElementById('loader-screen');
 const gameDiv = document.getElementById("main-game-div");
+const inGameLoader = document.getElementById("cover-spin");
 
 var firstPlayerName,secondPlayerName;
 
@@ -35,6 +36,17 @@ socket.on('secondPlayer',({firstPlayer,secondPlayer})=>{
   loaderDiv.classList.add('d-none');
   gameDiv.classList.remove('d-none');
 })
+
+socket.on('showWaitingIconCU',(element_id)=>{
+  console.log("Should display to who made the step");
+  inGameLoader.classList.remove('d-none');
+})
+
+socket.on('showWaitingIconBC',(element_id)=>{
+  console.log("Should display to other player");
+  inGameLoader.classList.add('d-none');
+})
+
 let step = 0;
 socket.on('playerStepClient',({element_id,value})=>{
   console.log('inside client play step')

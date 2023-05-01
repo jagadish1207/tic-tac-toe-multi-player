@@ -27,12 +27,16 @@ io.on('connection',socket=>{
 
     socket.on('playerStep',({element_id,value,room})=>{
         io.to(room).emit('playerStepClient',({element_id,value}));
+        socket.emit('showWaitingIconCU',element_id);
+        socket.broadcast.to(room).emit('showWaitingIconBC',element_id);
     })
 
     //send message when user disconnects
     socket.on('disconnect',()=>{
         const user = userLeave(socket.id);
-        console.log(user.username," left the game")
+        if(user){
+            console.log(user.username," left the game")
+        }
     })
 
 
